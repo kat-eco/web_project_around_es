@@ -74,12 +74,18 @@
               name="name"
               placeholder="Nombre"
               type="text"
+              minlength="2"
+              maxlength="40"
+              required
             />
             <input
               class="popup__input popup__input_type_description"
               name="description"
               placeholder="Acerca de mí"
               type="text"
+              minlength="2"
+              maxlength="200"
+              required
             />
             <button class="button popup__button" type="submit">Guardar</button>
           </form>
@@ -98,8 +104,10 @@
               class="popup__input popup__input_type_card-name"
               name="place-name"
               placeholder="Título"
-              required
               type="text"
+              minlength="2"
+              maxlength="30"
+              required
             />
             <input
               class="popup__input popup__input_type_url"
@@ -108,7 +116,9 @@
               required
               type="url"
             />
-            <button class="button popup__button" type="submit">Crear</button>
+            <button class="button popup__button" type="submit" disabled>
+              Crear
+            </button>
           </form>
         </div>
       </div>
@@ -124,6 +134,6 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
