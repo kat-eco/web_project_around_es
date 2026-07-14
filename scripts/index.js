@@ -1,4 +1,4 @@
-import { disableBtn } from "./validate.js";
+import { disableBtn, showInputError, hideInputError } from "./validate.js";
 
 //PROFILE VARIABLES
 const profile = document.querySelector(".profile");
@@ -35,8 +35,6 @@ const imagePopup = document.querySelector("#image-popup");
 const imagePopupImg = imagePopup.querySelector(".popup__image");
 const imagePopupCaption = imagePopup.querySelector(".popup__caption");
 const imagePopupCloseBtn = imagePopup.querySelector(".popup__close");
-
-const inputs = document.querySelectorAll(".popup__input");
 
 let initialCards = [
   {
