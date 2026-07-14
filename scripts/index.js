@@ -36,6 +36,8 @@ const imagePopupImg = imagePopup.querySelector(".popup__image");
 const imagePopupCaption = imagePopup.querySelector(".popup__caption");
 const imagePopupCloseBtn = imagePopup.querySelector(".popup__close");
 
+const inputs = document.querySelectorAll(".popup__input");
+
 let initialCards = [
   {
     name: "Valle de Yosemite",
