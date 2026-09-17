@@ -1,67 +1,41 @@
 import { disableBtn, showInputError, hideInputError } from "./validate.js";
 
 //PROFILE VARIABLES
-const profile = document.querySelector(".profile");
-const profileEditBtn = profile.querySelector(".profile__edit-button");
-const profileEditPopup = document.querySelector("#edit-popup");
-const profileEditCloseBtn = profileEditPopup.querySelector(".popup__close");
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
+const profile = document.querySelector<HTMLElement>(".profile")!;
+const profileEditBtn = profile.querySelector<HTMLButtonElement>(".profile__edit-button");
+const profileEditPopup = document.querySelector<HTMLElement>("#edit-popup")!;
+const profileEditCloseBtn = profileEditPopup.querySelector<HTMLButtonElement>(".popup__close");
+const profileTitle = document.querySelector<HTMLHeadingElement>(".profile__title");
+const profileDescription = document.querySelector<HTMLParagraphElement>(".profile__description");
 //PROFILE FORM VALIABLES
-const profileEditForm = profileEditPopup.querySelector("#edit-profile-form");
-const profileNameInput = profileEditForm.querySelector(
+const profileEditForm = profileEditPopup.querySelector<HTMLFormElement>("#edit-profile-form")!;
+const profileNameInput = profileEditForm.querySelector<HTMLInputElement>(
   ".popup__input_type_name",
 );
-const profileDescriptionInput = profileEditForm.querySelector(
+const profileDescriptionInput = profileEditForm.querySelector<HTMLInputElement>(
   ".popup__input_type_description",
 );
-const profileSubmitBtn = profileEditForm.querySelector(".popup__button");
+const profileSubmitBtn = profileEditForm.querySelector<HTMLButtonElement>(".popup__button");
 //CARD VARIABLES
-const cardTemplate = document.querySelector("#template-card");
-const cardsContainer = document.querySelector(".cards__list");
-const cardAddPopup = document.querySelector("#new-card-popup");
+const cardTemplate = document.querySelector<HTMLTemplateElement>("#template-card");
+const cardsContainer = document.querySelector<HTMLUListElement>(".cards__list");
+const cardAddPopup = document.querySelector<HTMLDivElement>("#new-card-popup")!;
 //CARD FORM VARIABLES
-const newCardPopup = document.querySelector("#new-card-popup");
-const cardNameInput = newCardPopup.querySelector(
+const cardNameInput = cardAddPopup.querySelector<HTMLInputElement>(
   ".popup__input_type_card-name",
 );
-const cardLinkInput = newCardPopup.querySelector(".popup__input_type_url");
-const cardAddBtn = profile.querySelector(".profile__add-button");
-const cardAddCloseBtn = cardAddPopup.querySelector(".popup__close");
-const cardSubmitBtn = cardAddPopup.querySelector(".popup__button");
-const newCardForm = document.querySelector("#new-card-form");
+const cardLinkInput = cardAddPopup.querySelector<HTMLInputElement>(".popup__input_type_url");
+const cardAddBtn = profile.querySelector<HTMLButtonElement>(".profile__add-button");
+const cardAddCloseBtn = cardAddPopup.querySelector<HTMLButtonElement>(".popup__close");
+const cardSubmitBtn = cardAddPopup.querySelector<HTMLButtonElement>(".popup__button");
+const newCardForm = document.querySelector<HTMLFormElement>("#new-card-form");
 
-const imagePopup = document.querySelector("#image-popup");
-const imagePopupImg = imagePopup.querySelector(".popup__image");
-const imagePopupCaption = imagePopup.querySelector(".popup__caption");
-const imagePopupCloseBtn = imagePopup.querySelector(".popup__close");
+const imagePopup = document.querySelector<HTMLDivElement>("#image-popup")!;
+const imagePopupImg = imagePopup.querySelector<HTMLImageElement>(".popup__image");
+const imagePopupCaption = imagePopup.querySelector<HTMLParagraphElement>(".popup__caption");
+const imagePopupCloseBtn = imagePopup.querySelector<HTMLButtonElement>(".popup__close");
 
-let initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
+
 
 function openModal(modal) {
   modal.classList.add("popup_is-opened");

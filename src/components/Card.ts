@@ -1,0 +1,1 @@
+//construirá la tarjeta individual
