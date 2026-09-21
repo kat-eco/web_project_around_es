@@ -36,33 +36,9 @@ const imagePopupCaption = imagePopup.querySelector<HTMLParagraphElement>(".popup
 const imagePopupCloseBtn = imagePopup.querySelector<HTMLButtonElement>(".popup__close");
 
 
-
-function openModal(modal) {
-  modal.classList.add("popup_is-opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("popup_is-opened");
-}
-
 function setOverlayClose(modal) {
-  modal.addEventListener("click", (evt) => {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
-}
-
-function pressEscClose(modal) {
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      const openedPopup = document.querySelector(".popup_is-opened");
-      if (openedPopup) {
-        closeModal(openedPopup);
-      }
-    }
-  });
-}
+  
+} 
 
 function fillProfileForm() {
   profileNameInput.value = profileTitle.textContent;
@@ -85,40 +61,6 @@ function handleProfileFormSubmit(evt) {
   profileDescription.textContent = newDescription;
 
   closeModal(profileEditPopup);
-}
-
-function getCardElement(
-  name = "Sin título",
-  link = "./images/placeholder.jpg",
-) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardLikeBtn = cardElement.querySelector(".card__like-button");
-  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardTitle.textContent = name;
-
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-button_is-active");
-  });
-  cardDeleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardImage.addEventListener("click", () => {
-    imagePopupImg.src = link;
-    imagePopupImg.alt = name;
-    imagePopupCaption.textContent = name;
-
-    openModal(imagePopup);
-  });
-
-  return cardElement;
 }
 
 function handleCardFormSubmit(evt) {
