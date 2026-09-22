@@ -16,18 +16,19 @@ export interface SectionConfig<T> { //used on Section.ts
   renderer: (item: T) => void; 
 } 
 
-export interface PopupFormData { 
+export interface PopupFormData { //used on PopupWithForm.ts
   [key: string]: string; 
 } 
 
-export type SubmitCallback = (data: PopupFormData) => void;
+export type SubmitPopupForm = (data: PopupFormData) => void;
+//used on PopupWithForm.ts
 
-export interface UserInfoData { 
-  name: string; 
-  description: string; 
-} 
-
-export interface UserInfoSelectors { 
+export interface UserInfoSelectors { //used on UserInfo.ts
   nameSelector: string; 
   jobSelector: string; 
 }
+
+export interface UserInfoData { //used on UserInfo.ts
+  name: string; 
+  description: string; 
+} 

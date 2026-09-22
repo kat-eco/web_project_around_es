@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const validate_js_1 = require("./validate.js");
+import { disableBtn, showInputError, hideInputError } from "./validate.js";
 //PROFILE VARIABLES
 const profile = document.querySelector(".profile");
 const profileEditBtn = profile.querySelector(".profile__edit-button");
@@ -18,9 +16,8 @@ const cardTemplate = document.querySelector("#template-card");
 const cardsContainer = document.querySelector(".cards__list");
 const cardAddPopup = document.querySelector("#new-card-popup");
 //CARD FORM VARIABLES
-const newCardPopup = document.querySelector("#new-card-popup");
-const cardNameInput = newCardPopup.querySelector(".popup__input_type_card-name");
-const cardLinkInput = newCardPopup.querySelector(".popup__input_type_url");
+const cardNameInput = cardAddPopup.querySelector(".popup__input_type_card-name");
+const cardLinkInput = cardAddPopup.querySelector(".popup__input_type_url");
 const cardAddBtn = profile.querySelector(".profile__add-button");
 const cardAddCloseBtn = cardAddPopup.querySelector(".popup__close");
 const cardSubmitBtn = cardAddPopup.querySelector(".popup__button");
@@ -29,54 +26,7 @@ const imagePopup = document.querySelector("#image-popup");
 const imagePopupImg = imagePopup.querySelector(".popup__image");
 const imagePopupCaption = imagePopup.querySelector(".popup__caption");
 const imagePopupCloseBtn = imagePopup.querySelector(".popup__close");
-let initialCards = [
-    {
-        name: "Valle de Yosemite",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-    },
-    {
-        name: "Lago Louise",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-    },
-    {
-        name: "Montañas Calvas",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-    },
-    {
-        name: "Latemar",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-    },
-    {
-        name: "Parque Nacional de la Vanoise",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-    },
-    {
-        name: "Lago di Braies",
-        link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-    },
-];
-function openModal(modal) {
-    modal.classList.add("popup_is-opened");
-}
-function closeModal(modal) {
-    modal.classList.remove("popup_is-opened");
-}
 function setOverlayClose(modal) {
-    modal.addEventListener("click", (evt) => {
-        if (evt.target === modal) {
-            closeModal(modal);
-        }
-    });
-}
-function pressEscClose(modal) {
-    document.addEventListener("keydown", (evt) => {
-        if (evt.key === "Escape") {
-            const openedPopup = document.querySelector(".popup_is-opened");
-            if (openedPopup) {
-                closeModal(openedPopup);
-            }
-        }
-    });
 }
 function fillProfileForm() {
     profileNameInput.value = profileTitle.textContent;
@@ -94,31 +44,6 @@ function handleProfileFormSubmit(evt) {
     profileTitle.textContent = newName;
     profileDescription.textContent = newDescription;
     closeModal(profileEditPopup);
-}
-function getCardElement(name = "Sin título", link = "./images/placeholder.jpg") {
-    const cardElement = cardTemplate.content
-        .querySelector(".card")
-        .cloneNode(true);
-    const cardTitle = cardElement.querySelector(".card__title");
-    const cardImage = cardElement.querySelector(".card__image");
-    const cardLikeBtn = cardElement.querySelector(".card__like-button");
-    const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-    cardImage.src = link;
-    cardImage.alt = name;
-    cardTitle.textContent = name;
-    cardLikeBtn.addEventListener("click", () => {
-        cardLikeBtn.classList.toggle("card__like-button_is-active");
-    });
-    cardDeleteBtn.addEventListener("click", () => {
-        cardElement.remove();
-    });
-    cardImage.addEventListener("click", () => {
-        imagePopupImg.src = link;
-        imagePopupImg.alt = name;
-        imagePopupCaption.textContent = name;
-        openModal(imagePopup);
-    });
-    return cardElement;
 }
 function handleCardFormSubmit(evt) {
     evt.preventDefault();
@@ -150,12 +75,11 @@ function setEventListeners() {
     imagePopupCloseBtn.addEventListener("click", () => closeModal(imagePopup));
 }
 setEventListeners();
-(0, validate_js_1.disableBtn)(profileEditForm, profileSubmitBtn);
-(0, validate_js_1.disableBtn)(newCardForm, cardSubmitBtn);
+disableBtn(profileEditForm, profileSubmitBtn);
+disableBtn(newCardForm, cardSubmitBtn);
 setOverlayClose(profileEditPopup);
 setOverlayClose(cardAddPopup);
 setOverlayClose(imagePopup);
 pressEscClose(profileEditPopup);
 pressEscClose(cardAddPopup);
 pressEscClose(imagePopup);
-//# sourceMappingURL=index.js.map
