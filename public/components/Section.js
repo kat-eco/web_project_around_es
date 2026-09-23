@@ -7,8 +7,10 @@ export class Section {
     constructor({ items, renderer }, containerSelector) {
         this.items = items;
         this.renderer = renderer;
-        const container = document.querySelector(".page__section");
-        //if (!container) { throw new Error("No se encontró el contenedor"); } 
+        const container = document.querySelector(containerSelector);
+        if (!container) {
+            throw new Error("No se encontró el contenedor");
+        }
         this.container = container;
     }
     renderItems() {

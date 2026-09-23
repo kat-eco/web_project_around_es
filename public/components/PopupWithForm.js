@@ -1,13 +1,13 @@
-import { Popup } from "./Popup";
+import { Popup } from "./Popup.js";
 export class PopupWithForm extends Popup {
     formElement;
     submitCallback;
     constructor(popupSelector, submitCallback) {
         super(popupSelector);
         const form = this.popupElement.querySelector(".popup__form");
-        /* if (!form) {
-      throw new Error("No se encontró el formulario");
-    } */
+        if (!form) {
+            throw new Error("No se encontró el formulario");
+        }
         this.formElement = form;
         this.submitCallback = submitCallback;
     }
@@ -19,6 +19,14 @@ export class PopupWithForm extends Popup {
         });
         return inputValues;
     }
+    setInputValues(data) {
+        Object.keys(data).forEach((key) => {
+            const input = this.formElement.elements.namedItem(key);
+            if (input instanceof HTMLInputElement) {
+                input.value = data[key];
+            }
+        });
+    }
     setEventListeners() {
         super.setEventListeners();
         this.formElement.addEventListener("submit", (evt) => {
@@ -28,8 +36,8 @@ export class PopupWithForm extends Popup {
         });
     }
     close() {
-        super.close();
         this.formElement.reset();
+        super.close();
     }
 }
 /*

@@ -5,9 +5,9 @@ export class Popup {
     constructor(popupSelector: string) {
         const popup = document.querySelector<HTMLElement>(popupSelector)!;
 
-        /* if (!popup) { 
+        if (!popup) { 
         throw new Error("No se encontró el popup"); 
-        } */
+        } 
 
         this.popupElement = popup;
     }

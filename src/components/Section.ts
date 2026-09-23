@@ -5,7 +5,7 @@ import type { SectionConfig } from "../types/types.js";
 
 export class Section<T> {
     private items: T[];
-    private renderer: ((card: T) => void);
+    private renderer: (card: T) => void;
     private container: HTMLElement;
 
     constructor(
@@ -16,9 +16,12 @@ export class Section<T> {
         this.renderer = renderer;
 
         const container = document.querySelector<HTMLElement>
-        (".page__section")!;
+        (containerSelector)!;
 
-    //if (!container) { throw new Error("No se encontró el contenedor"); } 
+    if (!container) { 
+        throw new Error("No se encontró el contenedor"); 
+    } 
+    
     this.container = container;
     }
 
@@ -27,6 +30,7 @@ export class Section<T> {
             this.renderer(item); 
         }); 
     } 
+
     public addItem(element: HTMLElement): void { 
         this.container.append(element); 
     }

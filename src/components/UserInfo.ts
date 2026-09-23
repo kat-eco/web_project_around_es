@@ -1,5 +1,5 @@
 import type {UserInfoData, 
-    UserInfoSelectors} from "../types/types";
+    UserInfoSelectors} from "../types/types.js";
 
 export class UserInfo {
     private nameElement: HTMLElement;
@@ -12,9 +12,9 @@ export class UserInfo {
         const jobElement = document.querySelector<HTMLElement>
         (selectors.jobSelector)!;
 
-        /*if (!nameElement || !jobElement) { 
+        if (!nameElement || !jobElement) { 
         throw new Error("No se encontraron los elementos del usuario"); 
-        }*/
+        }
 
         this.nameElement = nameElement;
         this.jobElement = jobElement;

@@ -1,9 +1,8 @@
-import {Popup} from "./Popup";
+import {Popup} from "./Popup.js";
 import type {
     PopupFormData, 
     SubmitPopupForm
-} from "../types/types";
-
+} from "../types/types.js";
 
 export class PopupWithForm extends Popup {
     private formElement: HTMLFormElement;
@@ -15,9 +14,9 @@ export class PopupWithForm extends Popup {
         const form = this.popupElement.querySelector<HTMLFormElement>
         (".popup__form")!;
 
-        /* if (!form) {
+        if (!form) {
       throw new Error("No se encontró el formulario");
-    } */
+    } 
         this.formElement = form; 
         this.submitCallback = submitCallback;
     }
@@ -34,18 +33,32 @@ export class PopupWithForm extends Popup {
         return inputValues;
     }
 
+    public setInputValues(data: PopupFormData): void {
+        Object.keys(data).forEach((key) => {
+            const input = this.formElement.elements.namedItem(key);
+
+            if (input instanceof HTMLInputElement) {
+                input.value = data[key];
+            }
+  });
+}
+
     public setEventListeners(): void {
         super.setEventListeners();
+
         this.formElement.addEventListener("submit", (evt: SubmitEvent) => {
             evt.preventDefault();
+
             const inputValues = this.getInputValues();
+
             this.submitCallback(inputValues);
         });
     }
 
     public close(): void {
-        super.close();
         this.formElement.reset();
+
+        super.close();
     }
 }
 

@@ -15,7 +15,7 @@
 }*/
 
 //construirá la tarjeta individual
-import type { CardConfig } from "../types/types";
+import type { CardConfig } from "../types/types.js";
 
 export class Card {
   private data: CardConfig;
@@ -38,13 +38,13 @@ export class Card {
   const cardElement = template.content.querySelector
   (".card")!.cloneNode(true) as HTMLElement; /*  si agregas if (!template) va despues de el*/
 
-  /*if (!template) {
+  if (!template) {
     throw new Error("No se encontró la plantilla de la tarjeta");
   }
 
   if (!cardElement) { 
     throw new Error("No se encontró el elemento cardElement"); 
-}*/
+}
 
   return cardElement;
 }

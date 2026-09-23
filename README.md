@@ -7,4 +7,10 @@ En esta ocasión se han agragado métodos de validación de formularios que pers
 
 De momento se utilizan los mensajes por Default que da el navegador, pero se puede mejorar dando los mensajes que el administrador decida.
 
+SPRINT 8:
+Con TypeScript como nueva herramienta, ahora se tiene mayor seguridad y organización de la página.
+Se validan los tipos de datos que pueden ser ingresados.
+Se establecen interfaces y types para que conjuntos como arrays reciban solo cierto tipo de datos.
+La lógica ahora es más clara gracias a la organización en varios archivos, pero también a que se evita código inecesario usando propiedades como la herencia y el polimorfismo.
+
 Hecho por Katia Hernández

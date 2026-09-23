@@ -1,4 +1,4 @@
-import { Popup } from "./Popup";
+import { Popup } from "./Popup.js";
 
 export class PopupWithImage extends Popup {
     private imageElement: HTMLImageElement;
@@ -12,11 +12,11 @@ export class PopupWithImage extends Popup {
     const caption = this.popupElement.querySelector<HTMLParagraphElement>
     (".popup__caption")!;
 
-    /* if (!image || !caption) { 
+    if (!image || !caption) { 
     throw new Error(
     "No se encontraron los elementos de la imagen"
     ); 
-    } */
+    } 
 
     this.imageElement = image; 
     this.captionElement = caption;

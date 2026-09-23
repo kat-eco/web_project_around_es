@@ -25,13 +25,12 @@ export class Card {
     getTemplate() {
         const template = document.querySelector(this.templateElement);
         const cardElement = template.content.querySelector(".card").cloneNode(true); /*  si agregas if (!template) va despues de el*/
-        /*if (!template) {
-          throw new Error("No se encontró la plantilla de la tarjeta");
+        if (!template) {
+            throw new Error("No se encontró la plantilla de la tarjeta");
         }
-      
         if (!cardElement) {
-          throw new Error("No se encontró el elemento cardElement");
-      }*/
+            throw new Error("No se encontró el elemento cardElement");
+        }
         return cardElement;
     }
     setEventListeners(cardElement) {

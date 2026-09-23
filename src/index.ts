@@ -1,24 +1,13 @@
 import {Card} from "./components/Card.js";
 import {FormValidator} from "./components/FormValidator.js";
-import {Popup} from "./components/Popup.js";
 import {PopupWithForm} from "./components/PopupWithForm.js";
 import {PopupWithImage} from "./components/PopupWithImage.js";
 import {Section} from "./components/Section.js";
 import {UserInfo} from "./components/UserInfo.js";
 
-import type { CardConfig, 
-    FormValidatorConfig, 
-    UserInfoData, } from "./types/types.js";
+import type { CardConfig } from "./types/types.js";
 
-import {initialCards} from "./utils/constants.js";
-
-const defaultFormConfig: FormValidatorConfig = {
-  inputsSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  activeErrorClass: "popup__input-error_active",
-};
+import {initialCards, defaultFormConfig} from "./utils/constants.js";
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
@@ -124,21 +113,10 @@ const addCardButton =
 profileEditButton?.addEventListener("click", () => {
   const currentUser = userInfo.getUserInfo();
 
-  const nameInput =
-    profilePopup["formElement"].querySelector<HTMLInputElement>(
-      ".popup__input_type_name"
-    );
-
-  const descriptionInput =
-    profilePopup["formElement"].querySelector<HTMLInputElement>(
-      ".popup__input_type_description"
-    );
-
-
-  if (nameInput && descriptionInput) {
-    nameInput.value = currentUser.name;
-    descriptionInput.value = currentUser.description;
-  }
+  profilePopup.setInputValues({
+    name: currentUser.name,
+    description: currentUser.description,
+  });
 
   profilePopup.open();
 });

@@ -4,9 +4,9 @@ export class UserInfo {
     constructor(selectors) {
         const nameElement = document.querySelector(selectors.nameSelector);
         const jobElement = document.querySelector(selectors.jobSelector);
-        /*if (!nameElement || !jobElement) {
-        throw new Error("No se encontraron los elementos del usuario");
-        }*/
+        if (!nameElement || !jobElement) {
+            throw new Error("No se encontraron los elementos del usuario");
+        }
         this.nameElement = nameElement;
         this.jobElement = jobElement;
     }

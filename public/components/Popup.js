@@ -2,9 +2,9 @@ export class Popup {
     popupElement;
     constructor(popupSelector) {
         const popup = document.querySelector(popupSelector);
-        /* if (!popup) {
-        throw new Error("No se encontró el popup");
-        } */
+        if (!popup) {
+            throw new Error("No se encontró el popup");
+        }
         this.popupElement = popup;
     }
     handleEscClose = (evt) => {

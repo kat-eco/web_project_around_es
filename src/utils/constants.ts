@@ -1,6 +1,6 @@
 // guardarás las constantes principales de tu proyecto. 
 
-import type { CardConfig } from "../types/types";
+import type {CardConfig, FormValidatorConfig} from "../types/types.js";
 
  /*Este objeto contendrá los selectores y las clases 
  del formulario, y debe incluir propiedades para:
@@ -34,7 +34,7 @@ export const initialCards: CardConfig[] = [
   },
 ];
 
-export const defaultFormConfig = {
+export const defaultFormConfig: FormValidatorConfig = {
   inputsSelector: ".popup__input",/* El selector de los campos de entrada (inputs) */
   submitButtonSelector: ".popup__button", /* El selector del botón de envío (submit) */
   inactiveButtonClass: "popup__button_disabled", /*La clase CSS que desactiva el botón*/
