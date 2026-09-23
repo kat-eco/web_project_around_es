@@ -1,11 +1,3 @@
-/*la lógica de validación se encontraba en funciones globales dentro 
-del archivo validate.js y las clases CSS estaban codificadas de forma 
-rígida (hardcoded) directamente en el código.
-Siguiendo los principios de la POO, las clases deben ser 
-universales y reutilizables. Por lo tanto, ahora tu objetivo 
-es encapsular esa funcionalidad en la nueva clase FormValidator 
-y pasarle las clases CSS a través de un objeto de configuración.*/
-
 import type { FormValidatorConfig } from "../types/types.js";
 
 export class FormValidator {
@@ -19,17 +11,7 @@ export class FormValidator {
     this.object = object;
     this.formElement = formElement;
   }
-/*function showInputError(
-  element: HTMLInputElement, 
-  errorMessage: string
-): void {
-  const errorElement = document.querySelector<HTMLSpanElement>
-  (`.${element.id}-input-error`);
 
-  element.classList.add("popup__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("popup__input-error_active");
-}*/
   private showInputError( 
     input: HTMLInputElement, 
     errorMessage: string 
@@ -45,16 +27,6 @@ export class FormValidator {
     } 
   }
 
-  /*function hideInputError(
-  element: HTMLInputElement
-  ): void {
-  const errorElement: HTMLSpanElement = document.querySelector
-  (`.${element.id}-input-error`)!;
-  
-  element.classList.remove("popup__input_type_error");
-  errorElement.classList.remove("popup__input-error_active");
-  errorElement.textContent = "";
-}*/
   private hideInputError(
     input: HTMLInputElement
   ): void { 
@@ -120,39 +92,3 @@ export class FormValidator {
     this.toggleButtonState(); 
   }
 }
-
-
-
-
-
-/*function disableBtn(
-  form: HTMLFormElement, 
-  button: HTMLButtonElement
-): void{
-  button.disabled = !form.checkValidity();
-
-  form.addEventListener("input", () => {
-    if (!form.checkValidity()) {
-      button.disabled = true;
-    } else {
-      button.disabled = false;
-    }
-  });
-
-  validateErrorMessage();
-}*/
-
-/*function validateErrorMessage(): void {
-  const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(".popup__input");
-
-  inputs.forEach((input) => {
-    input.addEventListener("input", function () {
-      if (!input.validity.valid) {
-        showInputError(input, input.validationMessage);
-      } else {
-        hideInputError(input);
-      }
-    });
-  });
-}*/
-

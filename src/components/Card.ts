@@ -1,18 +1,3 @@
-/*function getCardElement(
-  name = "Sin título",
-  link = "./images/placeholder.jpg",
-) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardTitle.textContent = name;
-
-  return cardElement;
-}*/
 
 //construirá la tarjeta individual
 import type { CardConfig } from "../types/types.js";
@@ -36,7 +21,7 @@ export class Card {
   const template =  document.querySelector<HTMLTemplateElement>
   (this.templateElement)!;
   const cardElement = template.content.querySelector
-  (".card")!.cloneNode(true) as HTMLElement; /*  si agregas if (!template) va despues de el*/
+  (".card")!.cloneNode(true) as HTMLElement; 
 
   if (!template) {
     throw new Error("No se encontró la plantilla de la tarjeta");

@@ -1,11 +1,4 @@
-// guardarás las constantes principales de tu proyecto. 
-
 import type {CardConfig, FormValidatorConfig} from "../types/types.js";
-
- /*Este objeto contendrá los selectores y las clases 
- del formulario, y debe incluir propiedades para:
-
-*/
 
 export const initialCards: CardConfig[] = [
   {
