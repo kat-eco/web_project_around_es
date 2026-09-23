@@ -40,15 +40,3 @@ export class PopupWithForm extends Popup {
         super.close();
     }
 }
-/*
-* Crea PopupWithForm como una clase hija de Popup.
-* Lleva un callback del envío del formulario al constructor
-  (crea un tipo para esta función), así como el selector popup.
-* Almacena un método privado llamado getInputValues(), que
-  recopila datos de todos los campos de entrada y devuelve un
-  objeto tipado.
-* Sobrescribe el método setEventListeners() para agregar al
-  formulario un controlador de eventos submit (SubmitEvent).
-* Sobrescribe el método padre close() para reiniciar el
-  formulario una vez se cierre el popup.
-*/ 

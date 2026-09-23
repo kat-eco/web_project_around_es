@@ -1,18 +1,3 @@
-/*function getCardElement(
-  name = "Sin título",
-  link = "./images/placeholder.jpg",
-) {
-  const cardElement = cardTemplate.content
-    .querySelector(".card")
-    .cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  
-  cardImage.src = link;
-  cardImage.alt = name;
-  cardTitle.textContent = name;
-
-  return cardElement;
-}*/
 export class Card {
     data;
     templateElement; //selector
@@ -24,7 +9,7 @@ export class Card {
     }
     getTemplate() {
         const template = document.querySelector(this.templateElement);
-        const cardElement = template.content.querySelector(".card").cloneNode(true); /*  si agregas if (!template) va despues de el*/
+        const cardElement = template.content.querySelector(".card").cloneNode(true);
         if (!template) {
             throw new Error("No se encontró la plantilla de la tarjeta");
         }

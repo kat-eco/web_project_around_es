@@ -22,9 +22,3 @@ export class PopupWithImage extends Popup {
         super.open();
     }
 }
-/*
-* Crea PopupWithImage como una clase hija de Popup.
-* Sobrescribe el método padre open(). En este método, debes
-añadir una imagen al popup y el correspondiente atributo src
-junto con una leyenda.
-*/ 

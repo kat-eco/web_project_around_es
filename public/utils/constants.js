@@ -1,8 +1,3 @@
-// guardarás las constantes principales de tu proyecto. 
-/*Este objeto contendrá los selectores y las clases
-del formulario, y debe incluir propiedades para:
-
-*/
 export const initialCards = [
     {
         placeName: "Valle de Yosemite",

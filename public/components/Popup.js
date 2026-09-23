@@ -32,15 +32,3 @@ export class Popup {
         });
     }
 }
-/* Crea la jerarquía de clases para las ventanas modales aplicando herencia
-(cada clase debe estar en su propio archivo con el mismo nombre):
-
-* El constructor tiene un solo parámetro, que es el selector del popup.
-* Almacena los métodos públicos open() y close(), que abrirán y cerrarán el
-popup.
-Almacena un método privado llamado handleEscClose(), que almacena la lógica
-* para cerrar el popup al pulsar la tecla Esc (tipa el evento como
-KeyboardEvent).
-* Almacena un método público llamado setEventListeners(), que agrega un
-detector de eventos de click al icono para cerrar el popup y al área
-sombreada. */ 

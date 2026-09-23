@@ -22,7 +22,3 @@ export class Section {
         this.container.append(element);
     }
 }
-/* Crea la clase Section en su propio archivo con el mismo
-nombre para presentar una lista de elementos en una página de
-acuerdo con los siguientes requisitos:
- */
